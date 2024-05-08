@@ -1,10 +1,8 @@
 // pages/api/cloudinary/[...media].ts
-import {
-  mediaHandlerConfig,
-  createMediaHandler,
-} from "next-tinacms-cloudinary/dist/handlers";
+import "next-tinacms-cloudinary/dist/handlers.js";
 
 import { isAuthorized } from "@tinacms/auth";
+import { createMediaHandler, mediaHandlerConfig } from "next-tinacms-cloudinary/dist/handlers";
 
 export const config = mediaHandlerConfig;
 
