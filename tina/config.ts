@@ -40,7 +40,6 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
-            indexed: true,
           },
           {
             type: "string",
