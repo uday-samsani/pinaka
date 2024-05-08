@@ -14,7 +14,7 @@ export default createMediaHandler({
   api_secret: process.env.CLOUDINARY_API_SECRET || "",
   authorized: async req => {
     try {
-      if (process.env.NODE_ENV == "development") {
+      if (process.env.NODE_ENV === "development") {
         return true;
       }
 
