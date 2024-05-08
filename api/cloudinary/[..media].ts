@@ -20,7 +20,7 @@ module.exports = createMediaHandler({
       const user = await isAuthorized(req);
 
       // return (user && user.verified);
-      return res.ok;
+      return true;
     } catch (e) {
       console.error(e);
       // return false;
