@@ -1,16 +1,15 @@
 ---
+title: Want a note taking app for OSCP prep
+description: Why obsidian is thee best when it omes to notee taking espeiilly for OSCP preprtion
 author: Uday
 pubDatetime: 2023-06-02T00:00:00Z
-title: Want a note taking app for OSCP prep
-slug: "want-a-note-taking-app-for-oscp-prep"
 modDatetime: 2023-06-02T00:00:00Z
+slug: "want-a-note-taking-app-for-oscp-prep"
 featured: true
 draft: false
 tags:
   - docs
   - oscp
-ogImage:
-description: Why obsidian is thee best when it omes to notee taking espeiilly for OSCP preprtion
 ---
 
 If you're preparing for the Offensive Security Certified Professional (OSCP) certification, effective note-taking becomes crucial for organising your research, documenting your findings, and maintaining a knowledge base for future reference. While there are numerous note-taking apps available like [Notion](https://www.notion.so/), [Logseq](https://logseq.com/), [Bear](https://bear.app/), [Cherry Tree](https://www.giuspen.net/cherrytree/) and many more that I haven't even explored. But [Obsidian](https://obsidian.md/) stands out as a powerful tool that can greatly enhance your OSCP preparation journey. In this article, I will let you know why Obsidian is the ideal companion for OSCP and discuss its edge over other alternatives.

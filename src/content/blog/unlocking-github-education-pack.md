@@ -1,9 +1,10 @@
 ---
+title: Unlocking Your GitHub Education Pack - A Student’s Guide to Tech Superpowers
+description: Discover how to access and maximize the GitHub Student Developer Pack, using premium tools and resources to build projects, showcase skills, and excel in tech.
 author: Uday
 pubDatetime: 2024-05-07T00:00:00Z
-title: Unlocking Your GitHub Education Pack - A Student’s Guide to Tech Superpowers
-slug: "unlocking-github-education-pack"
 modDatetime: 2023-06-02T00:00:00Z
+slug: "unlocking-github-education-pack"
 featured: true
 draft: false
 tags:
@@ -12,7 +13,6 @@ tags:
   - pack
   - student
   - feebies
-description: Discover how to access and maximize the GitHub Student Developer Pack, using premium tools and resources to build projects, showcase skills, and excel in tech.
 ---
 
 Greetings, fellow learners! Should you have been working on code, experimenting with projects, or having ambitious tech goals, you should be aware of the GitHub Student Developer Pack. This isn't just another collection of freebies; it's a gold mine of resources that can help you go beyond class assignments to prepare for your dream job. Let's explore how to obtain this fantastic pack and utilize all of its capabilities to hack your way to tech glory.

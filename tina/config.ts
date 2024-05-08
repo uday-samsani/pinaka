@@ -55,21 +55,15 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "string",
+            type: "datetime",
             name: "pubDatetime",
-            label: "PubDatetime",
+            label: "Publish Date Time",
             required: true,
           },
           {
-            type: "string",
+            type: "datetime",
             name: "modDatetime",
-            label: "ModDateTime",
-          },
-          {
-            type: "string",
-            name: "tags",
-            label: "Tags",
-            list: true,
+            label: "Modified Date Time",
           },
           {
             type: "string",
@@ -85,6 +79,12 @@ export default defineConfig({
             type: "boolean",
             name: "draft",
             label: "Draft",
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
           },
           {
             type: "rich-text",

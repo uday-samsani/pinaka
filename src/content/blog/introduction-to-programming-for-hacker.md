@@ -1,15 +1,15 @@
 ---
+title: An Introduction to Programming for a Hacker
+description: Choosing your first programming language for creating new exploits or automating already existing workflows.
 author: Uday
 pubDatetime: 2023-06-04T19:00:00Z
 modDatetime: 2023-06-02T00:00:00Z
-title: An Introduction to Programming for a Hacker
 slug: "introduction-to-programming-for-hacker"
 featured: true
 draft: false
 tags:
   - cybersecurity
   - programming
-description: Choosing your first programming language for creating new exploits or automating already existing workflows.
 ---
 
 Hackers who have a programming knowledge albeit a beginner level gains edge over others in various aspects. However, with the vast array of programming languages available, it can be challenging to start and for a good reason i.e there are lot of programming languages and paths we can take. In this blog post, we will guide you through the process of choosing your first programming language as a hacker, considering the objectives like ease of use, learning curve, tool availability. We will some of the paths which are relatively easily to get into and also has a very great community and resources available to you.
