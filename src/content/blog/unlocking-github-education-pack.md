@@ -3,6 +3,7 @@ author: Uday
 pubDatetime: 2024-05-07T00:00:00Z
 title: Unlocking Your GitHub Education Pack - A Student’s Guide to Tech Superpowers
 slug: "student-github-pack"
+modDateTime:
 featured: true
 draft: false
 tags:
