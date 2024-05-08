@@ -1,9 +1,9 @@
 // pages/api/cloudinary/[...media].ts
-import { isAuthorized } from "@tinacms/auth";
-import {
+const { isAuthorized } = require("@tinacms/auth");
+const {
   createMediaHandler,
   mediaHandlerConfig,
-} from "next-tinacms-cloudinary/dist/handlers";
+} = require("next-tinacms-cloudinary/dist/handlers");
 
 export const config = mediaHandlerConfig;
 
@@ -19,7 +19,7 @@ export default createMediaHandler({
 
       const user = await isAuthorized(req);
 
-      return !!(user && user.verified);
+      return (user && user.verified);
     } catch (e) {
       console.error(e);
       return false;
