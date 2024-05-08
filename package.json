@@ -2,7 +2,6 @@
   "name": "astro-paper",
   "version": "4.2.0",
   "private": false,
-  "type": "module",
   "scripts": {
     "dev": "tinacms dev -c 'astro dev'",
     "start": "tinacms build && astro dev",
