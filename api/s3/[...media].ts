@@ -17,7 +17,7 @@ module.exports = createMediaHandler({
     region: process.env.S3_REGION,
   },
   bucket: process.env.S3_BUCKET || "",
-  authorized: async (req, _res) => {
+  authorized: async (req: Request) => {
     if (process.env.NODE_ENV === "development") {
       return true;
     }
