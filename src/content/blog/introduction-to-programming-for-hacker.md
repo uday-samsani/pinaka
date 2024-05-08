@@ -4,7 +4,7 @@ description: >-
   Choosing your first programming language for creating new exploits or
   automating already existing workflows.
 author: Uday
-pubDatetime: 2023-06-06T04:00:00.000Z
+pubDatetime: 2023-06-01T04:00:00.000Z
 modDatetime: 2023-06-02T04:00:00.000Z
 slug: introduction-to-programming-for-hacker
 featured: true
