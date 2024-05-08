@@ -59,9 +59,6 @@ export default defineConfig({
             name: "pubDatetime",
             label: "PubDatetime",
             required: true,
-            ui: {
-              defaultValue: new Date().toISOString(),
-            },
           },
           {
             type: "string",
