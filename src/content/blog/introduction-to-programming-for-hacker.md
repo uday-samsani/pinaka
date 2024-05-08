@@ -1,7 +1,7 @@
 ---
 author: Uday
 pubDatetime: 2023-06-04T19:00:00Z
-modDateTime: 2023-06-02T00:00:00Z
+modDatetime: 2023-06-02T00:00:00Z
 title: An Introduction to Programming for a Hacker
 slug: "introduction-to-programming-for-hacker"
 featured: true
