@@ -32,15 +32,7 @@ export default defineConfig({
         name: "blog",
         label: "Blogs",
         path: "src/content/blog",
-        format: "md",
-        ui: {
-          filename: {
-            slugify: (values) => {
-              // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
-              return `${values?.title?.toLowerCase().replace(/ /g, "-")}`;
-            },
-          },
-        },
+        format: "mdx",
         fields: [
           {
             type: "string",
@@ -67,12 +59,20 @@ export default defineConfig({
             name: "pubDatetime",
             label: "PubDatetime",
             required: true,
+            ui: {
+              defaultValue: new Date().toISOString(),
+            },
           },
           {
             type: "string",
             name: "modDateTime",
             label: "ModDateTime",
-            required: true,
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
           },
           {
             type: "string",
