@@ -20,8 +20,7 @@ module.exports = createMediaHandler({
 
       const user = await isAuthorized(req);
 
-      // return (user && user.verified);
-      return true;
+      return (user && user.verified);
     } catch (e) {
       console.error(e);
       // return false;
@@ -41,8 +40,7 @@ module.exports = deleteMediaHandler({
       }
 
       const user = await isAuthorized(req);
-      // return (user && user.verified);
-      return true;
+      return (user && user.verified);
     } catch (e) {
       console.error(e);
       // return false;
