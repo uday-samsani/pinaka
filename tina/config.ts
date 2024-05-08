@@ -41,6 +41,45 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "description",
+            label: "Description",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "author",
+            label: "Author",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "pubDatetime",
+            label: "PubDatetime",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "modDateTime",
+            label: "ModDateTime",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "slug",
+            label: "Slug",
+          },
+          {
+            type: "boolean",
+            name: "featured",
+            label: "Featured",
+          },
+          {
+            type: "boolean",
+            name: "draft",
+            label: "Draft",
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",
