@@ -2,8 +2,8 @@
 author: Uday
 pubDatetime: 2023-06-02T00:00:00Z
 title: Want a note taking app for OSCP prep
-slug: "note-taking-app"
-modDateTime:
+slug: "want-a-note-taking-app-for-oscp-prep"
+modDateTime: 2023-06-02T00:00:00Z
 featured: true
 draft: false
 tags:
