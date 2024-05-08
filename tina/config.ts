@@ -72,6 +72,7 @@ export default defineConfig({
             type: "string",
             name: "modDateTime",
             label: "ModDateTime",
+            required: true,
           },
           {
             type: "string",
