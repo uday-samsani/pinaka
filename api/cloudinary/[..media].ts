@@ -5,7 +5,7 @@ const {
   mediaHandlerConfig,
 } = require("next-tinacms-cloudinary/dist/handlers");
 
-const config = mediaHandlerConfig;
+module.exports.config = mediaHandlerConfig;
 
 module.exports = createMediaHandler({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME || "",
