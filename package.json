@@ -17,10 +17,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/rss": "^4.0.2",
     "@resvg/resvg-js": "^2.6.0",
     "@tinacms/auth": "^1.0.4",
-    "astro": "^4.2.1",
+    "astro": "^4.8.2",
     "fuse.js": "^7.0.0",
     "github-slugger": "^2.0.0",
     "next-tinacms-cloudinary": "^5.0.3",
@@ -33,7 +34,7 @@
   },
   "devDependencies": {
     "@astrojs/react": "^3.0.9",
-    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/sitemap": "^3.1.4",
     "@astrojs/tailwind": "^5.1.0",
     "@divriots/jampack": "^0.23.2",
     "@tailwindcss/typography": "^0.5.10",

@@ -14,7 +14,13 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     react(),
-    sitemap(),
+    sitemap({
+      filter: page =>
+        page !== "https://udaysamsani.com/admin/index.html" &&
+        page !== "https://udaysamsani.com/admin/" &&
+        page !== "https://www.udaysamsani.com/admin/index.html" &&
+        page !== "https://www.udaysamsani.com/admin/",
+    }),
   ],
   markdown: {
     remarkPlugins: [
