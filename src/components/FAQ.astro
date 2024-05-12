@@ -1,0 +1,25 @@
+---
+const { faqs } = Astro.props;
+---
+
+{
+  faqs ? (
+    <>
+      <h3 class="group" id="FAQ">
+        Frequently Asked Questions
+      </h3>
+      <ul class="list-disc list-outside">
+        {faqs.map(faq => (
+          <li>
+            <h4 class="text-sm font-semibold">{faq.question}</h4>
+            <p class="text-sm font-light">{faq.answer}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="text-xs italic" id="contact-me">
+        Have a different question and can’t find the answer you’re looking for?
+        Reach out to me here.
+      </p>
+    </>
+  ) : null
+}

@@ -20,12 +20,6 @@ export default defineConfig({
     publicFolder: "public",
   },
   media: {
-    // public git static images
-    // tina: {
-    //   mediaRoot: "src/assets/blog/",
-    //   publicFolder: "public",
-    // },
-
     // cloudinary
     loadCustomStore: async () => {
       const pack = await import("next-tinacms-cloudinary");
@@ -47,6 +41,15 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
+            ui: {
+              validate: (value, data) => {
+                const lengthOfTitle = value?.length || 0;
+                const lengthOfDescription = data?.description?.length || 0;
+                if (lengthOfTitle >= lengthOfDescription) {
+                  return "The description must be longer than the title";
+                }
+              },
+            },
           },
           {
             type: "string",
@@ -59,6 +62,7 @@ export default defineConfig({
             name: "author",
             label: "Author",
             required: true,
+            options: ["Uday"],
           },
           {
             type: "datetime",
@@ -70,6 +74,15 @@ export default defineConfig({
             type: "datetime",
             name: "modDatetime",
             label: "Modified Date Time",
+            ui: {
+              validate: (value, data) => {
+                const modifiedDate = new Date(value);
+                const publishDate = new Date(data?.pubDatetime);
+                if (modifiedDate < publishDate) {
+                  return "You cannot set modified date before published date.";
+                }
+              },
+            },
           },
           {
             type: "string",
@@ -97,8 +110,57 @@ export default defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
+            templates: [
+              {
+                name: "Callout",
+                label: "Callout",
+                fields: [{
+                  name: "message",
+                  label: "Message",
+                  type: "string",
+                },
+                ],
+              },
+            ],
+          },
+          {
+            type: "object",
+            name: "faqs",
+            label: "FAQ's",
+            list: true,
+            fields: [
+              {
+                name: "question",
+                label: "Question",
+                type: "string",
+              },
+              {
+                name: "answer",
+                label: "Answer",
+                type: "string",
+              },
+            ],
           },
         ],
+        defaultItem: () => {
+          return {
+            pubDatetime: new Date().toISOString(),
+            author: "Uday",
+          };
+        },
+        ui: {
+          filename: {
+            // if disabled, the editor can not edit the filename
+            readonly: true,
+            // Example of using a custom slugify function
+            slugify: (values) => {
+              // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+              return `${values?.topic || "no-topic"}-${values?.title
+                ?.toLowerCase()
+                .replace(/ /g, "-")}`;
+            },
+          },
+        },
       },
     ],
   },
