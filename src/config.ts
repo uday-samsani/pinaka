@@ -4,8 +4,8 @@ export const SITE: Site = {
   website: "https://udaysamsani.com/", // replace this with your deployed domain
   author: "Uday",
   desc: "Hey there! Welcome to my blog, where I share awesome resources, tips, and guides to help you level up in tech, coding, and AI. Whether you're building projects or just starting out, I'm here to help you thrive on your tech journey!",
-  title: "UdaySamsani's Blog",
-  ogImage: "",
+  title: "UdaySamsani",
+  // ogImage: "",
   lightAndDarkMode: true,
   postPerPage: 3,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
