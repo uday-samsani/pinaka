@@ -94,8 +94,12 @@ const seoSchema = {
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-      onclick={() =>
-        history.length === 1 ? (window.location = "/") : history.back()}
+      onclick={() => {
+        console.log(history.length);
+        console.log(history);
+        console.log(window.location.href);
+        return history.length === 1 ? (window.location = "/") : history.back();
+      }}
     >
       <svg xmlns="http://www.w3.org/2000/svg">
         <path
