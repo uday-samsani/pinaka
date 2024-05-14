@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
+import FAQ from "../components/FAQ.astro";
 import Datetime from "@components/Datetime";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
@@ -24,6 +25,7 @@ const {
   pubDatetime,
   modDatetime,
   tags,
+  faqs,
 } = post.data;
 
 const { Content } = await post.render();
@@ -44,7 +46,43 @@ const layoutProps = {
   ogImage: ogUrl,
   scrollSmooth: true,
 };
+
+const seoSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description: description,
+  keywords: tags,
+  image: [ogUrl],
+  author: {
+    "@type": "Person",
+    name: author,
+    url: new URL("/about", Astro.url.origin),
+  },
+  datePublished: new Date(pubDatetime).toISOString(),
+  ...(modDatetime && { dateModified: new Date(modDatetime).toISOString() }),
+  ...(faqs && {
+    mainEntity: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map(faq => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    },
+  }),
+};
 ---
+
+<script
+  slot="head"
+  type="application/ld+json"
+  set:html={JSON.stringify(seoSchema)}
+/>
 
 <Layout {...layoutProps}>
   <Header />
@@ -56,13 +94,17 @@ const layoutProps = {
   <div class="mx-auto flex w-full max-w-3xl justify-start px-2">
     <button
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
-      onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
+      onclick="(() => (history.length === 1) ? window.location = "
+      "
+      :
+      history.back())();"
     >
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><path
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <path
           d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
         ></path>
-      </svg><span>Go back</span>
+      </svg>
+      <span>Go back</span>
     </button>
   </div>
   <main id="main-content">
@@ -75,6 +117,7 @@ const layoutProps = {
     />
     <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
+      <FAQ faqs={faqs} />
     </article>
 
     <ul class="my-8">
@@ -106,6 +149,7 @@ const layoutProps = {
   main {
     @apply mx-auto w-full max-w-3xl px-4 pb-12;
   }
+
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;
   }
@@ -131,6 +175,7 @@ const layoutProps = {
     // Append the progress container to the document body or any other desired parent element
     document.body.appendChild(progressContainer);
   }
+
   createProgressBar();
 
   /** Update the progress bar
@@ -149,6 +194,7 @@ const layoutProps = {
       }
     }
   }
+
   document.addEventListener("scroll", updateScrollProgress);
 
   /** Attaches links to headings in the document,
@@ -165,6 +211,7 @@ const layoutProps = {
       heading.appendChild(link);
     }
   }
+
   addHeadingLinks();
 
   /** Attaches copy buttons to code blocks in the document,
@@ -207,6 +254,7 @@ const layoutProps = {
       }, 700);
     }
   }
+
   attachCopyButtons();
 
   /** Scrolls the document to the top when
@@ -217,5 +265,6 @@ const layoutProps = {
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     });
   }
+
   backToTop();
 </script>
