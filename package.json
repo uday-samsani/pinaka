@@ -1,7 +1,7 @@
 {
-  "name": "astro-paper",
-  "version": "4.2.0",
-  "private": false,
+  "name": "udaysamsani.com",
+  "version": "1.0.1",
+  "private": true,
   "scripts": {
     "dev": "tinacms dev -c 'astro dev'",
     "start": "tinacms build && astro dev",
