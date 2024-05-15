@@ -9,7 +9,6 @@ import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
-import { navigate } from "astro:transitions/client";
 
 export interface Props {
   post: CollectionEntry<"blog">;
