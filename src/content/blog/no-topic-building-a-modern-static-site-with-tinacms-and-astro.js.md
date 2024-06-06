@@ -67,11 +67,6 @@ Here are some snippets of how I configured the frontmatter properties and Static
 &#x9;},
 
 }
-
-\`\`\`
-
-\`\`\`typescript
-
 {
 
 name: "blog",
@@ -174,7 +169,6 @@ fields: \[
   ],  
 
 },
-```
 
 &#x9;]
 
@@ -185,3 +179,4 @@ fields: \[
 \## Conclusion
 
 TinaCMS stands out due to its open-source nature. It is an excellent choice for developers and content creators seeking a flexible and modern CMS without vendor lock-in. By leveraging TinaCMS, you can efficiently manage your blog, enjoy the benefits of version control, and customize the platform to suit your specific needs. If you're running a personal blog TinaCMS provides the tools and flexibility required for effective content management.
+```
