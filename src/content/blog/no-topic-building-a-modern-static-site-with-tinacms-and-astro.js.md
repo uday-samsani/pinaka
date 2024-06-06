@@ -27,7 +27,7 @@ faqs:
 
 Bloggers all need help with maintaining their content. That's why choosing a good Content Management System (CMS for short) is very important. We have to choose a CMS which is scalable, open, and without a vendor lock-in. We have several CMSs which are very good in their belt hitting way above their weight like Ghost CMS, Sanity, WordPress, and many more But I recently came across [Tina](https://tina.io "Tina") which is a git-based CMS which is unique and open. Let me introduce why Tina might be the best cms for your blog.
 
-![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1717634469/blog/Screenshot_2024-06-05_at_8.40.56_PM_dmnzpt.avif)
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1717635894/blog/Screenshot_2024-06-05_at_9.04.24_PM_neqovd.avif)
 
 ## Table of contents
 
