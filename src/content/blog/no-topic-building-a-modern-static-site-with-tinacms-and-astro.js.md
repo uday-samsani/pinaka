@@ -14,7 +14,8 @@ faqs:
     answer: >-
       No, anyone can use this there is alot of documentations and help available
       online.
-  - {}
+  - question: Is this completely free?
+    answer: 'Yes, this is open source and is free forever if you use self hosting.'
 ---
 
 Bloggers all need help with maintaining their content. That's why choosing a good Content Management System (CMS for short) is very important. We have to choose a CMS which is scalable, open, and without a vendor lock-in. We have several CMSs which are very good in their belt hitting way above their weight like Ghost CMS, Sanity, WordPress, and many more But I recently came across Tina which is a git-based CMS which is unique and open. Let me introduce why Tina might be the best cms for your blog.
@@ -49,17 +50,17 @@ Here are some snippets of how I configured the frontmatter properties and Static
 
 {
 
-&#x9;media: {  
+&#x9;media: {
 
-&#x9;  // cloudinary  
+&#x9;  // cloudinary
 
-&#x9;  loadCustomStore: async () => {  
+&#x9;  loadCustomStore: async () => {
 
-&#x9;    const pack = await import("next-tinacms-cloudinary");  
+&#x9;    const pack = await import("next-tinacms-cloudinary");
 
-&#x9;    return pack.TinaCloudCloudinaryMediaStore;  
+&#x9;    return pack.TinaCloudCloudinaryMediaStore;
 
-&#x9;  },  
+&#x9;  },
 
 &#x9;},
 
@@ -69,107 +70,109 @@ Here are some snippets of how I configured the frontmatter properties and Static
 
 \`\`\`typescript
 
+{
+
+name: "blog",
+
+label: "Blogs",
+
+path: "src/content/blog",
+
+format: "md",
+
+fields: \[
+
+```
 {  
 
-  name: "blog",  
+  type: "string",  
 
-  label: "Blogs",  
+  name: "title",  
 
-  path: "src/content/blog",  
+  label: "Title",  
 
-  format: "md",  
+  isTitle: true,  
 
-  fields: \[
+  required: true,  
+
+  ui: {  
+
+    validate: (value, data) => {  
+
+      const lengthOfTitle = value?.length || 0;  
+
+      const lengthOfDescription = data?.description?.length || 0;  
+
+      if (lengthOfTitle >= lengthOfDescription) {  
+
+        return "The description must be longer than the title";  
+
+      }  
+
+    },  
+
+  },  
+
+},
+
+{  
+
+  type: "boolean",  
+
+  name: "draft",  
+
+  label: "Draft",  
+
+},  
+
+{  
+
+  type: "string",  
+
+  name: "tags",  
+
+  label: "Tags",  
+
+  list: true,  
+
+},  
+
+{  
+
+  type: "rich-text",  
+
+  name: "body",  
+
+  label: "Body",  
+
+  isBody: true,  
+
+  templates: \[  
 
     {  
 
-      type: "string",  
+      name: "Callout",  
 
-      name: "title",  
+      label: "Callout",  
 
-      label: "Title",  
+      fields: \[{  
 
-      isTitle: true,  
+        name: "message",  
 
-      required: true,  
+        label: "Message",  
 
-      ui: {  
-
-        validate: (value, data) => {  
-
-          const lengthOfTitle = value?.length || 0;  
-
-          const lengthOfDescription = data?.description?.length || 0;  
-
-          if (lengthOfTitle >= lengthOfDescription) {  
-
-            return "The description must be longer than the title";  
-
-          }  
-
-        },  
+        type: "string",  
 
       },  
 
-    },
-
-    {  
-
-      type: "boolean",  
-
-      name: "draft",  
-
-      label: "Draft",  
-
-    },  
-
-    {  
-
-      type: "string",  
-
-      name: "tags",  
-
-      label: "Tags",  
-
-      list: true,  
-
-    },  
-
-    {  
-
-      type: "rich-text",  
-
-      name: "body",  
-
-      label: "Body",  
-
-      isBody: true,  
-
-      templates: \[  
-
-        {  
-
-          name: "Callout",  
-
-          label: "Callout",  
-
-          fields: \[{  
-
-            name: "message",  
-
-            label: "Message",  
-
-            type: "string",  
-
-          },  
-
-          ],  
-
-        },  
-
       ],  
 
-    },
+    },  
+
+  ],  
+
+},
+```
 
 &#x9;]
 
