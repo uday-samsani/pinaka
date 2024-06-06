@@ -16,6 +16,8 @@ faqs:
       online.
   - question: Is this completely free?
     answer: 'Yes, this is open source and is free forever if you use self hosting.'
+  - question: Is my data stored in Git if I use Tina CMS?
+    answer: 'Yes, all your data will be stored in git repository.'
 ---
 
 Bloggers all need help with maintaining their content. That's why choosing a good Content Management System (CMS for short) is very important. We have to choose a CMS which is scalable, open, and without a vendor lock-in. We have several CMSs which are very good in their belt hitting way above their weight like Ghost CMS, Sanity, WordPress, and many more But I recently came across Tina which is a git-based CMS which is unique and open. Let me introduce why Tina might be the best cms for your blog.
