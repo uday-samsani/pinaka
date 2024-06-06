@@ -10,6 +10,10 @@ pubDatetime: 2024-05-21T23:08:55.122Z
 slug: powerup-your-jamstack-tina-cms
 featured: true
 draft: false
+tags:
+  - git
+  - cms
+  - blog
 faqs:
   - question: Is this only for people with technical knowledge?
     answer: >-
