@@ -20,7 +20,7 @@ faqs:
     answer: 'Yes, all your data will be stored in git repository.'
 ---
 
-Bloggers all need help with maintaining their content. That's why choosing a good Content Management System (CMS for short) is very important. We have to choose a CMS which is scalable, open, and without a vendor lock-in. We have several CMSs which are very good in their belt hitting way above their weight like Ghost CMS, Sanity, WordPress, and many more But I recently came across Tina which is a git-based CMS which is unique and open. Let me introduce why Tina might be the best cms for your blog.
+Bloggers all need help with maintaining their content. That's why choosing a good Content Management System (CMS for short) is very important. We have to choose a CMS which is scalable, open, and without a vendor lock-in. We have several CMSs which are very good in their belt hitting way above their weight like Ghost CMS, Sanity, WordPress, and many more But I recently came across [Tina](https://tina.io "Tina") which is a git-based CMS which is unique and open. Let me introduce why Tina might be the best cms for your blog.
 
 \## Table of contents
 
@@ -32,7 +32,7 @@ While there are many CMS which provide API. This is one of the unique ones where
 
 \### Open Source:
 
-TinaCMS started as an open-source project. Even now after the acquisition by an Australian firm, it is still committed by the firm and community to stay open source.
+[TinaCMS](https://github.com/tinacms/tinacms "TinaCMS") started as an open-source project. Even now after the acquisition by an Australian firm, it is still committed by the firm and community to stay open source.
 
 \### Inline Editing:
 
@@ -44,7 +44,7 @@ TinaCMS is best suited for developers and content creators looking for a flexibl
 
 \## How I am using the Tina CMS
 
-I am using Tina CMS for this blog. The first thing that I did after setting Tina was to configure all the frontmatter properties for my markdown blog posts so that I could access them in my Astro markdown props. Apart from that I have changed my static media upload from git source to Cloudinary CDN for better image processing and image delivery.
+I am using Tina CMS for this [blog](https://udaysamsani.com "blog"). The first thing that I did after setting Tina was to configure all the frontmatter properties for my markdown blog posts so that I could access them in my Astro markdown props. Apart from that I have changed my static media upload from git source to Cloudinary CDN for better image processing and image delivery.
 
 Here are some snippets of how I configured the frontmatter properties and Static images handler.
 
@@ -84,7 +84,7 @@ format: "md",
 
 fields: \[
 
-```
+```javascript
 {  
 
   type: "string",  
