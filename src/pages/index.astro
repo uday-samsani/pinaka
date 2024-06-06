@@ -9,7 +9,7 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
-import { Astro } from "astro/env";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 const posts = await getCollection("blog");
 
@@ -51,6 +51,8 @@ const seoSchema = [
   type="application/ld+json"
   set:html={JSON.stringify(seoSchema)}
 />
+
+<SpeedInsights />
 
 <Layout>
   <Header />

@@ -5,7 +5,14 @@ import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
+import vercel from "@astrojs/vercel/serverless";
 
+// export default defineConfig({
+//   output: 'server',
+//   adapter: vercel({
+//     webAnalytics: { enabled: true }
+//   }),
+// });
 export default defineConfig({
   site: SITE.website,
   integrations: [
@@ -42,4 +49,8 @@ export default defineConfig({
     },
   },
   scopedStyleStrategy: "where",
+  output: "server",
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
 });
