@@ -48,135 +48,74 @@ I am using Tina CMS for this [blog](https://udaysamsani.com "blog"). The first t
 
 Here are some snippets of how I configured the frontmatter properties and Static images handler.
 
-\`\`\`typescript
-
+```javascript
 {
-
-&#x9;media: {
-
-&#x9;  // cloudinary
-
-&#x9;  loadCustomStore: async () => {
-
-&#x9;    const pack = await import("next-tinacms-cloudinary");
-
-&#x9;    return pack.TinaCloudCloudinaryMediaStore;
-
-&#x9;  },
-
-&#x9;},
-
+  media: {
+    // cloudinary  
+    loadCustomStore: async () => {
+      const pack = await import("next-tinacms-cloudinary");
+      return pack.TinaCloudCloudinaryMediaStore;
+    },  
+	},
 }
-{
-
-name: "blog",
-
-label: "Blogs",
-
-path: "src/content/blog",
-
-format: "md",
-
-fields: \[
+```
 
 ```javascript
-{  
-
-  type: "string",  
-
-  name: "title",  
-
-  label: "Title",  
-
-  isTitle: true,  
-
-  required: true,  
-
-  ui: {  
-
-    validate: (value, data) => {  
-
-      const lengthOfTitle = value?.length || 0;  
-
-      const lengthOfDescription = data?.description?.length || 0;  
-
-      if (lengthOfTitle >= lengthOfDescription) {  
-
-        return "The description must be longer than the title";  
-
-      }  
-
-    },  
-
-  },  
-
-},
-
-{  
-
-  type: "boolean",  
-
-  name: "draft",  
-
-  label: "Draft",  
-
-},  
-
-{  
-
-  type: "string",  
-
-  name: "tags",  
-
-  label: "Tags",  
-
-  list: true,  
-
-},  
-
-{  
-
-  type: "rich-text",  
-
-  name: "body",  
-
-  label: "Body",  
-
-  isBody: true,  
-
-  templates: \[  
-
-    {  
-
-      name: "Callout",  
-
-      label: "Callout",  
-
-      fields: \[{  
-
-        name: "message",  
-
-        label: "Message",  
-
-        type: "string",  
-
-      },  
-
-      ],  
-
-    },  
-
-  ],  
-
-},
-
-&#x9;]
-
+{
+  name: "blog",
+    label: "Blogs",
+      path: "src/content/blog",
+        format: "md",
+          fields: [
+            {
+              type: "string",
+              name: "title",
+              label: "Title",
+              isTitle: true,
+              required: true,
+              ui: {
+                validate: (value, data) => {
+                  const lengthOfTitle = value?.length || 0;
+                  const lengthOfDescription = data?.description?.length || 0;
+                  if (lengthOfTitle >= lengthOfDescription) {
+                    return "The description must be longer than the title";
+                  }
+                },
+              },
+            },
+            {
+              type: "boolean",
+              name: "draft",
+              label: "Draft",
+            },
+            {
+              type: "string",
+              name: "tags",
+              label: "Tags",
+              list: true,
+            },
+            {
+              type: "rich-text",
+              name: "body",
+              label: "Body",
+              isBody: true,
+              templates: [
+                {
+                  name: "Callout",
+                  label: "Callout",
+                  fields: [{
+                    name: "message",
+                    label: "Message",
+                    type: "string",
+                  },
+                  ],
+                },
+              ],
+            },
+          ]
 }
-
-\`\`\`
+```
 
 \## Conclusion
 
 TinaCMS stands out due to its open-source nature. It is an excellent choice for developers and content creators seeking a flexible and modern CMS without vendor lock-in. By leveraging TinaCMS, you can efficiently manage your blog, enjoy the benefits of version control, and customize the platform to suit your specific needs. If you're running a personal blog TinaCMS provides the tools and flexibility required for effective content management.
-```
