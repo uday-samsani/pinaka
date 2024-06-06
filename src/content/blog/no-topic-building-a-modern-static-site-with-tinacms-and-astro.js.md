@@ -25,27 +25,27 @@ Bloggers all need help with maintaining their content. That's why choosing a goo
 
 ![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1717634469/blog/Screenshot_2024-06-05_at_8.40.56_PM_dmnzpt.avif)
 
-\## Table of contents
+## Table of contents
 
-\## Why TinaCMS is best for content management?
+## Why TinaCMS is best for content management?
 
-\### Git Based:
+### Git Based:
 
 While there are many CMS which provide API. This is one of the unique ones where all the content is stored in markdown format in a git repository without any vendor lock-in. On top of all this, you can leverage the benefits of git to your advantage such as commit history, tracking, environments, etc.
 
-\### Open Source:
+### Open Source:
 
 [TinaCMS](https://github.com/tinacms/tinacms "TinaCMS") started as an open-source project. Even now after the acquisition by an Australian firm, it is still committed by the firm and community to stay open source.
 
-\### Inline Editing:
+### Inline Editing:
 
 TinaCMS features inline editing, allowing you to update content directly on your website with a live preview. This intuitive editing experience streamlines content creation and management, making it accessible and efficient for users of all technical levels.
 
-\## Who will be Tina CMS best for?
+## Who will be Tina CMS best for?
 
 TinaCMS is best suited for developers and content creators looking for a flexible and modern content management solution. It's ideal for those who appreciate the benefits of a git-based workflow, offering robust version control and seamless collaboration. Additionally, its open-source nature makes it perfect for teams that need a customizable, scalable CMS without vendor lock-in. Whether you're managing a small personal blog or a large-scale content site, TinaCMS provides the tools and flexibility needed to efficiently.
 
-\## How I am using the Tina CMS
+## How I am using the Tina CMS
 
 I am using Tina CMS for this [blog](https://udaysamsani.com "blog"). The first thing that I did after setting Tina was to configure all the frontmatter properties for my markdown blog posts so that I could access them in my Astro markdown props. Apart from that I have changed my static media upload from git source to Cloudinary CDN for better image processing and image delivery.
 
@@ -121,6 +121,6 @@ Here are some snippets of how I configured the frontmatter properties and Static
 }
 ```
 
-\## Conclusion
+## Conclusion
 
 TinaCMS stands out due to its open-source nature. It is an excellent choice for developers and content creators seeking a flexible and modern CMS without vendor lock-in. By leveraging TinaCMS, you can efficiently manage your blog, enjoy the benefits of version control, and customize the platform to suit your specific needs. If you're running a personal blog TinaCMS provides the tools and flexibility required for effective content management.
