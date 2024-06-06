@@ -56,7 +56,7 @@ Here are some snippets of how I configured the frontmatter properties and Static
       const pack = await import("next-tinacms-cloudinary");
       return pack.TinaCloudCloudinaryMediaStore;
     },  
-	}
+	},
 }
 ```
 
