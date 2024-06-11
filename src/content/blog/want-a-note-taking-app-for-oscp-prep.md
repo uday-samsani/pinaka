@@ -1,7 +1,7 @@
 ---
 title: Want a note taking app for OSCP prep
 description: >-
-  Why obsidian is thee best when it omes to notee taking espeiilly for OSCP
+  Why obsidian is the best when it omes to notee taking espeiilly for OSCP
   preprtion
 author: Uday
 pubDatetime: 2023-06-02T00:00:00.000Z
