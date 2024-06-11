@@ -13,10 +13,15 @@ tags:
   - docs
   - oscp
 faqs:
-  - question: Is this only for oscp? Can I use this for other note taking?
-    answer: You can use this for anything you want to note for.
+  - question: Is Obsidian the only option in market?
+    answer: >-
+      Absolutely not, there are wonderful other applications such as notion,
+      cherry tree, roam, logseq, it depends on individual on what to use based
+      on feature set of that sepcific app.
   - question: Is this note taking app free?
     answer: 'Yes, Its free forever'
+  - question: Is this only for oscp? Can I use this for other note taking?
+    answer: You can use this for anything you want to note for.
 ---
 
 If you're preparing for the Offensive Security Certified Professional (OSCP) certification, effective note-taking becomes crucial for organizing your research, documenting your findings, and maintaining a knowledge base for future reference. While there are numerous note-taking apps available like [Notion](https://www.notion.so/), [Logseq](https://logseq.com/), [Bear](https://bear.app/), [Cherry Tree](https://www.giuspen.net/cherrytree/) and many more that I haven't even explored. But [Obsidian](https://obsidian.md/) stands out as a powerful tool that can greatly enhance your OSCP preparation journey. In this article, I will let you know why Obsidian is the ideal companion for OSCP and discuss its edge over other alternatives.
