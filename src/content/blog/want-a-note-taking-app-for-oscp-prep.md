@@ -13,6 +13,8 @@ tags:
   - docs
   - oscp
 faqs:
+  - question: Is this only for oscp? Can I use this for other note taking?
+    answer: You can use this for anything you want to note for.
   - question: Is this note taking app free?
     answer: 'Yes, Its free forever'
 ---
