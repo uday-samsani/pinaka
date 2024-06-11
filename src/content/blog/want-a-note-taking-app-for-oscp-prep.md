@@ -7,7 +7,7 @@ author: Uday
 pubDatetime: 2023-06-02T00:00:00.000Z
 modDatetime: 2023-06-02T00:00:00.000Z
 slug: want-a-note-taking-app-for-oscp-prep
-featured: true
+featured: false
 draft: false
 tags:
   - notes
