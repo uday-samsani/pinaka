@@ -10,6 +10,7 @@ slug: want-a-note-taking-app-for-oscp-prep
 featured: true
 draft: false
 tags:
+  - notes
   - docs
   - oscp
 faqs:
