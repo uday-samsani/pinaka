@@ -9,8 +9,6 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
-import { Astro } from "astro/env";
-import SpeedInsights from "@vercel/speed-insights/astro";
 
 const posts = await getCollection("blog");
 
@@ -53,7 +51,15 @@ const seoSchema = [
   set:html={JSON.stringify(seoSchema)}
 />
 
-<SpeedInsights />
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-M9VSDVP8"
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <Layout>
   <Header />
@@ -202,3 +208,38 @@ const seoSchema = [
     @apply my-8 text-center;
   }
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script
+  slot="head"
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-3ZSMGXCHYC"></script>
+<script slot="head">
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag("js", new Date());
+
+  gtag("config", "G-3ZSMGXCHYC");
+</script>
+
+<!-- Google Tag Manager -->
+<script slot="head">
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      "gtm.start": new Date().getTime(),
+      event: "gtm.js",
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-M9VSDVP8");
+</script>
+<!-- End Google Tag Manager -->
