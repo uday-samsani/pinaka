@@ -1,10 +1,12 @@
 ---
 title: Want a note taking app for OSCP prep
-description: Why obsidian is thee best when it omes to notee taking espeiilly for OSCP preprtion
+description: >-
+  Why obsidian is thee best when it omes to notee taking espeiilly for OSCP
+  preprtion
 author: Uday
-pubDatetime: 2023-06-02T00:00:00Z
-modDatetime: 2023-06-02T00:00:00Z
-slug: "want-a-note-taking-app-for-oscp-prep"
+pubDatetime: 2023-06-02T00:00:00.000Z
+modDatetime: 2023-06-02T00:00:00.000Z
+slug: want-a-note-taking-app-for-oscp-prep
 featured: true
 draft: false
 tags:
@@ -12,24 +14,22 @@ tags:
   - oscp
 ---
 
-If you're preparing for the Offensive Security Certified Professional (OSCP) certification, effective note-taking becomes crucial for organising your research, documenting your findings, and maintaining a knowledge base for future reference. While there are numerous note-taking apps available like [Notion](https://www.notion.so/), [Logseq](https://logseq.com/), [Bear](https://bear.app/), [Cherry Tree](https://www.giuspen.net/cherrytree/) and many more that I haven't even explored. But [Obsidian](https://obsidian.md/) stands out as a powerful tool that can greatly enhance your OSCP preparation journey. In this article, I will let you know why Obsidian is the ideal companion for OSCP and discuss its edge over other alternatives.
+If you're preparing for the Offensive Security Certified Professional (OSCP) certification, effective note-taking becomes crucial for organizing your research, documenting your findings, and maintaining a knowledge base for future reference. While there are numerous note-taking apps available like [Notion](https://www.notion.so/), [Logseq](https://logseq.com/), [Bear](https://bear.app/), [Cherry Tree](https://www.giuspen.net/cherrytree/) and many more that I haven't even explored. But [Obsidian](https://obsidian.md/) stands out as a powerful tool that can greatly enhance your OSCP preparation journey. In this article, I will let you know why Obsidian is the ideal companion for OSCP and discuss its edge over other alternatives.
 
-![Obsidian](https://res.cloudinary.com/artoffsec/image/upload/f_auto/q_auto/v1685701910/blog/images/um9thxg6q2py2i0xivho.png)
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1718147944/blog/Screenshot_2024-06-11_at_7.18.31_PM_ryzjcl.avif)
 
 ## Table of contents
 
 ## Plugins: Extending Functionality to Suit Your Needs
 
-![Plugins](https://res.cloudinary.com/artoffsec/image/upload/f_auto/q_auto/v1685701385/blog/images/yx2w5x50b7hkkpxttyna.png)
-
-Every one who tried Obsidian before agrees with me here, that obsidian has an extensive plugin ecosystem. Obsidian offers a wide range of community-developed plugins that can be easily installed to enhance the app's functionality and tailor fit your specific needs. When preparing for OSCP, this flexibility becomes invaluable.
+Everyone who tried Obsidian before agrees with me here, that Obsidian has an extensive plugin ecosystem. Obsidian offers a wide range of community-developed plugins that can be easily installed to enhance the app's functionality and tailor fit your specific needs. When preparing for OSCP, this flexibility becomes invaluable.
 
 You can leverage plugins like
 
-- **Templater** to create templates for your future notes to have certain template structure.
-- **Obsidian Git** to make your entire obsidian notes vault a git repo to make it portable.
-- **Dataview** to organize and view the notes and data to your custom index pages.
-- **Kanban** to maintain a Kanban board to track different things effectively.
+* **Templater** to create templates for your future notes to have a certain template structure.
+* **Obsidian Git** to make your entire obsidian notes vault a git repo to make it portable.
+* **Dataview** to organize and view the notes and data to your custom index pages.
+* **Kanban** to maintain a Kanban board to track different things effectively.
 
 And many more [plugins](https://obsidian.md/plugins), all those integrate together to make Obsidian a treat to use.
 
