@@ -12,6 +12,9 @@ draft: false
 tags:
   - docs
   - oscp
+faqs:
+  - question: Is this note taking app free?
+    answer: 'Yes, Its free forever'
 ---
 
 If you're preparing for the Offensive Security Certified Professional (OSCP) certification, effective note-taking becomes crucial for organizing your research, documenting your findings, and maintaining a knowledge base for future reference. While there are numerous note-taking apps available like [Notion](https://www.notion.so/), [Logseq](https://logseq.com/), [Bear](https://bear.app/), [Cherry Tree](https://www.giuspen.net/cherrytree/) and many more that I haven't even explored. But [Obsidian](https://obsidian.md/) stands out as a powerful tool that can greatly enhance your OSCP preparation journey. In this article, I will let you know why Obsidian is the ideal companion for OSCP and discuss its edge over other alternatives.
@@ -43,7 +46,7 @@ Obsidian is built with a "Markdown first" approach, which means it formatting us
 
 ## Vibrant Community for Themes
 
-![Themes](https://res.cloudinary.com/artoffsec/image/upload/f_auto/q_auto/v1685701347/blog/images/tritjold3k1r7y88d3bj.png)
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1718148004/blog/Screenshot_2024-06-11_at_7.19.46_PM_s9txa6.avif)
 
 Obsidian has a thriving community of users who actively share their themes and contribute to the ever-growing collection of user-created themes. This vibrant community ensures that you have access to a wide range of visually stunning themes, catering to different tastes and preferences. Whether you're looking for a professional-looking theme or a creative and colorful design, the Obsidian community is a treasure trove of inspiration.
 
