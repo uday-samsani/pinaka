@@ -1,10 +1,9 @@
 ---
 title: Power up your Jamstack blog with Tina CMS
 description: >-
-  Discover why TinaCMS is the best choice for your JAMSTACK blog. Learn about
-  its git-based workflow, open-source benefits, and powerful inline editing
-  features. Perfect for developers and content creators seeking a flexible,
-  modern CMS without vendor lock-in.
+  Discover why TinaCMS is the best choice for your JAMSTACK blog. Learn why it
+  is perfect for developers and content creators seeking a flexible, modern CMS
+  without vendor lock-in.
 author: Uday
 pubDatetime: 2024-05-21T23:08:55.122Z
 slug: powerup-your-jamstack-tina-cms
