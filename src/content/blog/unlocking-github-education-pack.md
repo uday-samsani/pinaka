@@ -1,5 +1,5 @@
 ---
-title: Unlocking Your GitHub Education Pack - A Student’s Guide to Tech Superpowers
+title: Unlocking your GitHub education pack - A student’s superpower
 description: >-
   Discover how to access and maximize the GitHub Student Developer Pack, using
   premium tools and resources to build projects, showcase skills, and excel in
@@ -17,10 +17,10 @@ tags:
   - student
   - freebies
 faqs:
-  - question: "I am a teacher, Can I also get the Education Pack?"
-    answer: "Yes, GitHub offers the education pack for both students and teachers"
+  - question: 'I am a teacher, Can I also get the Education Pack?'
+    answer: 'Yes, GitHub offers the education pack for both students and teachers'
   - question: Does GitHub Student provide any certification?
-    answer: "No, but you can use some platforms which are there in Student Pack."
+    answer: 'No, but you can use some platforms which are there in Student Pack.'
   - question: Can we use GitHub Student after graduating?
     answer: >-
       Yes, Github Student pack can be used if you still have access to your
@@ -55,11 +55,11 @@ Greetings, fellow learners! Should you have been working on code, experimenting 
 
 ### Pro Tips for Ultimate Impact
 
-- **Build Real Projects**: Apply your newly found tools to class assignments or personal projects. Create a cool web app or contribute to an open-source project.
-- **Network & Collaborate**: Use GitHub Pro to showcase your projects and build a professional network. Recruit other students to join your next big idea!
-- **Stay Current**: Many offers refresh annually, so keep exploring new tools and resources to upgrade your skills over time.
-- **Portfolio Power-Up**: Having a polished GitHub profile can help recruiters notice you. Use GitHub Pages to host a portfolio site, display your best projects, and track your coding journey.
-- **Upgrade**: Upgrade your existing portfolio or projects from GitHub pages to AWSGCP or Azure with the newly acquired credits.
+* **Build Real Projects**: Apply your newly found tools to class assignments or personal projects. Create a cool web app or contribute to an open-source project.
+* **Network & Collaborate**: Use GitHub Pro to showcase your projects and build a professional network. Recruit other students to join your next big idea!
+* **Stay Current**: Many offers refresh annually, so keep exploring new tools and resources to upgrade your skills over time.
+* **Portfolio Power-Up**: Having a polished GitHub profile can help recruiters notice you. Use GitHub Pages to host a portfolio site, display your best projects, and track your coding journey.
+* **Upgrade**: Upgrade your existing portfolio or projects from GitHub pages to AWSGCP or Azure with the newly acquired credits.
 
 ### Wrapping It Up
 
