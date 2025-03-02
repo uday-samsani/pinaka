@@ -18,6 +18,8 @@ I solved my first-ever flag early on, and despite facing some tough challenges, 
 
 Interac provided great advice about career growth, and I was able to network with talented individuals. The pizza, camaraderie, and learning experience made it all worth it. I’m already excited about participating in more CTFs and applying everything I learned.
 
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1740942707/blog/main_page_g8ugiu.avif)
+
 # **Day 1**
 
 ## **3:00 PM**
@@ -68,5 +70,7 @@ I woke up late and missed my scheduled timeline to reach Concordia by 9:00 AM. H
 
 I remembered the Vim prison challenge I had left unfinished the day before. With just 30 minutes before the submission deadline, I quickly revisited it. I checked the `bashrc` file, and with help from my teammate Cyres, we inspected the Vim environment with, `:echo $`, where we found the flag.
 
-With all this, we finally reached our final score of 1300 points. Taking us in the top 15 of all 60 teams.
-That’s our CTF experience in a nutshell!
+With all this, we finally reached our final score of 1300 points. Taking us in the top 15 of all 60 teams. \
+
+
+Reflecting on my experience at ATHack2024, I realized there are several key areas where I need to improve. First, I need to focus on enhancing my skills in areas like XSS and other technical challenges to perform better in future CTFs. Time management is another critical aspect I need to work on, especially during events where every minute counts. Lastly, maintaining a proper sleep schedule will help me stay focused and perform at my best, ensuring I don’t hit a slump after hours of intense problem-solving. With these lessons in mind, I’m determined to tackle my weaknesses and come back stronger next time!
