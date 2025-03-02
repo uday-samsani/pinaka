@@ -10,8 +10,6 @@ slug: my-first-ever-ctf-athack25
 featured: true
 ---
 
-# TL;DR:
-
 At **ATHack2024** in **Montreal**, I had an amazing experience attending the CTF event at Concordia University. It was my first CTF, and I got the chance to compete in a variety of challenges across modules like **PWN**, **Stegno**, **Web**, and **Crypto**.
 
 I solved my first-ever flag early on, and despite facing some tough challenges, including a **buffer overflow** and **Vim prison**, I made steady progress and earned points. The thrill of cracking flags, especially in **steganography** and **exploits**, kept me motivated. By the end of the event, my team was in the **top 15** out of 60 teams, which was a huge accomplishment!
