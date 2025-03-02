@@ -8,6 +8,12 @@ author: Uday
 pubDatetime: 2025-03-02T18:55:20.134Z
 slug: my-first-ever-ctf-athack25
 featured: true
+tags:
+  - top15
+  - competition
+  - university
+  - cybersecurity
+  - ctf
 ---
 
 At **ATHack2024** in **Montreal**, I had an amazing experience attending the CTF event at Concordia University. It was my first CTF, and I got the chance to compete in a variety of challenges across modules like **PWN**, **Stegno**, **Web**, and **Crypto**.
