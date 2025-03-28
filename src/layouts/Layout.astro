@@ -2,7 +2,6 @@
 import { LOCALE, SITE } from "@config";
 import "@styles/base.css";
 import { ViewTransitions } from "astro:transitions";
-import Analytics from "@vercel/analytics";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -107,9 +106,22 @@ const socialImageURL = new URL(
     }
 
     <ViewTransitions />
-    <Analytics />
 
     <script is:inline src="/toggle-theme.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3ZSMGXCHYC"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-3ZSMGXCHYC");
+    </script>
   </head>
   <body>
     <slot />

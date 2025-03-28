@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
+import partytown from "@astrojs/partytown";
 import { SITE } from "./src/config";
 
 // export default defineConfig({
@@ -25,6 +26,11 @@ export default defineConfig({
         page !== "https://udaysamsani.com/admin/" &&
         page !== "https://www.udaysamsani.com/admin/index.html" &&
         page !== "https://www.udaysamsani.com/admin/",
+    }),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
     }),
   ],
   markdown: {
