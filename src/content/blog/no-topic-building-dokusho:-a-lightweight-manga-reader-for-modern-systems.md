@@ -9,7 +9,6 @@ pubDatetime: 2025-04-19T15:23:13.715Z
 slug: building-dokusho-manga-reader
 featured: true
 tags:
-  - ''
   - tauri
   - development
   - app
