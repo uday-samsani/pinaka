@@ -16,7 +16,7 @@ tags:
 
 As a manga fan, I've long been dismayed that there aren't elegant manga readers on macOS. Most solutions were clunky, outdated, or platform-specific. That's why I created Dokusho (Japanese for "reading") – a contemporary, cross-platform manga reader native to any operating system.
 
-![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1745076155/blog/SCR-20250419-kicb_jnoccx.avif)
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1745077129/blog/SCR-20250419-knmq_rpayou.avif)
 
 ## The Problem
 
