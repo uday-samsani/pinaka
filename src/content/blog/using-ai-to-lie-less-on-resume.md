@@ -21,6 +21,8 @@ For a long time, I just... didn't apply to places. Felt like lying to claim 8 ye
 
 Then I started using AI differently.
 
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1739287200/blog/ai-resume-narrative.avif)
+
 ## The Real History
 
 My AI setup knows my actual story. Not the sanitized version — the real mess. The 5,000 Obsidian users who found my Cloudinary plugin. The progression from 14th place at my first CTF to 4th at Hackfest. The architecture students who came back to thank me after my Stable Diffusion seminar.

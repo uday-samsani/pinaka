@@ -21,6 +21,8 @@ I noticed I was context-switching poorly. I'd be deep in a Rust borrow checker f
 
 So I made my AI do the switching for me.
 
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1739287200/blog/three-masks-workspace.avif)
+
 ## Three Contexts, One Mind
 
 Now I have three contexts. Same underlying setup, different instructions:

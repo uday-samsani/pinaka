@@ -18,6 +18,8 @@ I was three hours into a Claude conversation about memory management in Rust whe
 
 That was the night I spun up a €6 Hetzner box and installed OpenClaw.
 
+![](https://res.cloudinary.com/dmqn4aaos/image/upload/v1739287200/blog/openclaw-telegram-setup.avif)
+
 Look, I'm not a self-hosting maximalist. I still use ChatGPT for quick lookups. But for the stuff that matters — the ongoing projects, the context that builds up over weeks, the things I want to remember — I wanted something that doesn't vanish when the subscription lapses.
 
 ## What OpenClaw Actually Is
