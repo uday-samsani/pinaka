@@ -22,15 +22,14 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: hasTinaCloud
-    ? {
-        // cloudinary - only load when TinaCloud is configured
-        loadCustomStore: async () => {
-          const pack = await import("next-tinacms-cloudinary");
-          return pack.TinaCloudCloudinaryMediaStore;
-        },
-      }
-    : undefined,
+  media: {
+    // Use Tina's built-in media (stores in repo)
+    // For Cloudinary, migrate to TinaCloud media or custom solution later
+    tina: {
+      mediaRoot: "uploads",
+      publicFolder: "public",
+    },
+  },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
