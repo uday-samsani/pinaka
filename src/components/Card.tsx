@@ -19,17 +19,17 @@ export default function Card({
 
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
-    className: `font-serif font-medium tracking-tight group-hover:text-primary-600 transition-colors duration-300 ${
+    className: `font-serif font-semibold tracking-tight group-hover:text-primary-600 transition-colors duration-300 ${
       featured ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
     }`,
   };
 
   return (
-    <li className={`group ${featured ? "my-8" : "my-6"}`}>
+    <li className={`group ${featured ? "my-8" : "my-6"}`} data-stagger-item>
       <article
         className={`relative ${
           featured
-            ? "bg-skin-card border border-skin-line rounded-2xl p-6 sm:p-8 transition-all duration-300 ease-out hover:border-primary-500/30 hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1"
+            ? "bg-skin-card border border-skin-line rounded-2xl p-6 sm:p-8 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-primary-500/30 hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1"
             : ""
         }`}
       >

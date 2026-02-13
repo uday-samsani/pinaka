@@ -112,16 +112,16 @@ const seoSchema = [
     <!-- Featured Post Section -->
     {
       featuredPosts.length > 0 && (
-        <section class="py-16 sm:py-20">
+        <section class="py-16 sm:py-20" data-animate>
           <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center gap-4 mb-10">
-              <h2 class="text-2xl sm:text-3xl font-serif font-medium">
+              <h2 class="text-2xl sm:text-3xl font-serif font-semibold">
                 Featured
               </h2>
               <div class="flex-1 h-px bg-gradient-to-r from-skin-line to-transparent" />
             </div>
 
-            <ul class="space-y-8">
+            <ul class="space-y-8" data-stagger="120">
               {featuredPosts.map(({ data, slug }) => (
                 <Card
                   href={`/posts/${slug}/`}
@@ -139,10 +139,10 @@ const seoSchema = [
     <!-- Recent Posts Section -->
     {
       recentPosts.length > 0 && (
-        <section class="py-16 sm:py-20 bg-skin-fill-muted/50">
+        <section class="py-16 sm:py-20 bg-skin-fill-muted/50" data-animate>
           <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-10">
-              <h2 class="text-2xl sm:text-3xl font-serif font-medium">
+              <h2 class="text-2xl sm:text-3xl font-serif font-semibold">
                 Recent Posts
               </h2>
               <a
@@ -167,9 +167,12 @@ const seoSchema = [
               </a>
             </div>
 
-            <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <ul
+              class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              data-stagger="100"
+            >
               {recentPosts.map(({ data, slug }) => (
-                <li class="card group">
+                <li class="card group" data-stagger-item>
                   <a href={`/posts/${slug}/`} class="block h-full">
                     <article class="h-full flex flex-col">
                       <time class="text-xs font-medium text-skin-base-muted uppercase tracking-wide">
