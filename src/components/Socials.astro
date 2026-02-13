@@ -10,7 +10,7 @@ export interface Props {
 const { centered = false } = Astro.props;
 ---
 
-<div class={`social-icons ${centered ? "flex" : ""}`}>
+<div class={`social-icons ${centered ? "justify-center" : ""}`}>
   {
     SOCIALS.filter(social => social.active).map(social => (
       <LinkButton
@@ -27,9 +27,12 @@ const { centered = false } = Astro.props;
 
 <style>
   .social-icons {
-    @apply flex-wrap justify-center gap-1;
+    @apply flex flex-wrap items-center gap-2;
   }
   .link-button {
-    @apply p-2 hover:rotate-6 sm:p-1;
+    @apply p-2 rounded-lg text-skin-base-muted hover:text-primary-600 hover:bg-primary-500/10 transition-all duration-200;
+  }
+  .link-button :global(svg) {
+    @apply h-5 w-5;
   }
 </style>
