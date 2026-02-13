@@ -1,6 +1,5 @@
 import { defineConfig } from "tinacms";
 
-
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -8,25 +7,30 @@ const branch =
   process.env.HEAD ||
   "main";
 
+// Check if TinaCloud is configured
+const hasTinaCloud = process.env.NEXT_PUBLIC_TINA_CLIENT_ID && process.env.TINA_TOKEN;
+
 export default defineConfig({
   branch,
 
-  // Get this from tina.io
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  // Get this from tina.io
-  token: process.env.TINA_TOKEN,
+  // Get this from tina.io - optional for static builds
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+  // Get this from tina.io - optional for static builds
+  token: process.env.TINA_TOKEN || null,
 
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: {
-    // cloudinary
-    loadCustomStore: async () => {
-      const pack = await import("next-tinacms-cloudinary");
-      return pack.TinaCloudCloudinaryMediaStore;
-    },
-  },
+  media: hasTinaCloud
+    ? {
+        // cloudinary - only load when TinaCloud is configured
+        loadCustomStore: async () => {
+          const pack = await import("next-tinacms-cloudinary");
+          return pack.TinaCloudCloudinaryMediaStore;
+        },
+      }
+    : undefined,
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
