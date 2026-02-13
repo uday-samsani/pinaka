@@ -23,8 +23,8 @@ export default defineConfig({
     publicFolder: "public",
   },
   media: {
-    // Use Tina's built-in media (stores in repo)
-    // For Cloudinary, migrate to TinaCloud media or custom solution later
+    // Local media storage - stores files in repo (public/uploads)
+    // No external CDN needed, everything stays in GitHub
     tina: {
       mediaRoot: "uploads",
       publicFolder: "public",
