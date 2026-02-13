@@ -7,33 +7,33 @@
 
 @layer base {
   :root {
-    /* Light theme - Warm Cream */
-    --color-fill: 250, 249, 246;
-    --color-fill-muted: 245, 243, 238;
-    --color-text-base: 26, 26, 26;
-    --color-text-muted: 82, 82, 82;
-    --color-accent: 217, 119, 6;
-    --color-accent-hover: 180, 83, 9;
+    /* Light theme - Refined Warm Cream Palette */
+    --color-fill: 252, 251, 248;
+    --color-fill-muted: 247, 245, 240;
+    --color-text-base: 28, 27, 26;
+    --color-text-muted: 92, 88, 84;
+    --color-accent: 202, 111, 4;
+    --color-accent-hover: 166, 91, 3;
     --color-card: 255, 255, 255;
-    --color-card-hover: 252, 250, 245;
-    --color-card-muted: 245, 243, 238;
-    --color-border: 230, 227, 220;
-    --color-border-hover: 217, 119, 6;
+    --color-card-hover: 254, 253, 250;
+    --color-card-muted: 242, 239, 233;
+    --color-border: 232, 228, 220;
+    --color-border-hover: 202, 111, 4;
   }
 
   html[data-theme="dark"] {
-    /* Dark theme - Charcoal */
-    --color-fill: 26, 26, 26;
-    --color-fill-muted: 38, 38, 38;
-    --color-text-base: 250, 249, 246;
-    --color-text-muted: 163, 163, 163;
+    /* Dark theme - Refined Charcoal Palette */
+    --color-fill: 23, 23, 23;
+    --color-fill-muted: 32, 32, 32;
+    --color-text-base: 250, 248, 245;
+    --color-text-muted: 168, 162, 156;
     --color-accent: 251, 191, 36;
-    --color-accent-hover: 245, 158, 11;
-    --color-card: 38, 38, 38;
-    --color-card-hover: 45, 45, 45;
-    --color-card-muted: 51, 51, 51;
-    --color-border: 64, 64, 64;
-    --color-border-hover: 217, 119, 6;
+    --color-accent-hover: 253, 205, 90;
+    --color-card: 32, 32, 32;
+    --color-card-hover: 38, 38, 38;
+    --color-card-muted: 45, 45, 45;
+    --color-border: 55, 55, 55;
+    --color-border-hover: 251, 191, 36;
   }
 
   /* Theme icon visibility */
@@ -197,11 +197,11 @@
 }
 
 @layer components {
-  /* Card component */
+  /* Card component - Polished with refined shadows */
   .card {
     @apply bg-skin-card border border-skin-line rounded-xl p-6
-    transition-all duration-300 ease-out
-    hover:border-skin-border-hover hover:shadow-lg hover:shadow-primary-500/5
+    transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]
+    hover:border-skin-border-hover shadow-lift shadow-lift-hover
     hover:-translate-y-1;
   }
 
@@ -229,9 +229,15 @@
     hover:bg-skin-card hover:text-primary-600;
   }
 
-  /* Gradient text */
+  /* Gradient text - More refined */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500
+    @apply bg-gradient-to-r from-primary-700 via-primary-600 to-accent-600
+    bg-clip-text text-transparent;
+  }
+
+  /* Subtle gradient text */
+  .gradient-text-subtle {
+    @apply bg-gradient-to-br from-skin-base via-skin-base to-skin-accent
     bg-clip-text text-transparent;
   }
 
@@ -288,6 +294,41 @@
   /* Gradient backgrounds */
   .bg-gradient-subtle {
     @apply bg-gradient-to-br from-skin-fill to-skin-fill-muted;
+  }
+
+  /* Ambient gradient backgrounds */
+  .bg-gradient-ambient {
+    background: linear-gradient(135deg, 
+      rgba(var(--color-fill)) 0%, 
+      rgba(var(--color-fill-muted)) 50%,
+      rgba(var(--color-card-muted)) 100%
+    );
+  }
+
+  /* Warm glow gradient */
+  .bg-gradient-warm {
+    background: linear-gradient(160deg,
+      rgba(251, 191, 36, 0.03) 0%,
+      rgba(202, 111, 4, 0.05) 50%,
+      rgba(var(--color-fill)) 100%
+    );
+  }
+
+  /* Card lift shadow */
+  .shadow-lift {
+    box-shadow: 
+      0 1px 2px rgba(0, 0, 0, 0.02),
+      0 4px 8px rgba(0, 0, 0, 0.03),
+      0 8px 16px rgba(0, 0, 0, 0.03),
+      0 16px 32px rgba(0, 0, 0, 0.02);
+  }
+
+  .shadow-lift-hover:hover {
+    box-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.02),
+      0 8px 16px rgba(0, 0, 0, 0.03),
+      0 16px 32px rgba(0, 0, 0, 0.04),
+      0 32px 64px rgba(0, 0, 0, 0.03);
   }
 
   /* Glass effect */
