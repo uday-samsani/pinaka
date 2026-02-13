@@ -67,17 +67,24 @@ export default function Card({
             </p>
 
             {tags && tags.length > 0 && (
-              <div className="flex flex-wrap gap-2 pt-2">
+              <div className="flex flex-wrap gap-2 pt-3">
                 {tags.slice(0, 3).map(tag => (
                   <span
                     key={tag}
-                    className="inline-flex items-center px-2.5 py-0.5 text-xs font-medium bg-skin-fill-muted text-skin-base-muted rounded-full transition-colors duration-200 group-hover:bg-primary-500/10 group-hover:text-primary-600"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-skin-fill-muted text-skin-base-muted rounded-full transition-all duration-200 group-hover:bg-primary-500/10 group-hover:text-primary-600 border border-transparent group-hover:border-primary-500/20"
                   >
+                    <svg
+                      className="h-3 w-3"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37z" />
+                    </svg>
                     {tag}
                   </span>
                 ))}
                 {tags.length > 3 && (
-                  <span className="inline-flex items-center px-2.5 py-0.5 text-xs font-medium text-skin-base-muted">
+                  <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium text-skin-base-muted">
                     +{tags.length - 3}
                   </span>
                 )}

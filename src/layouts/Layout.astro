@@ -105,10 +105,53 @@ const socialImageURL = new URL(
       )
     }
 
-    <ViewTransitions />
+    <ViewTransitions fallback="swap" />
 
     <script is:inline src="/toggle-theme.js"></script>
     <script src="/animations.js" defer></script>
+
+    <!-- Page Transition Styles -->
+    <style is:global>
+      /* View transition animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeOutDown {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Astro view transitions */
+      ::view-transition-old(root) {
+        animation: fadeOutDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      ::view-transition-new(root) {
+        animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      /* Reduced motion preference */
+      @media (prefers-reduced-motion: reduce) {
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+          animation: none;
+        }
+      }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"

@@ -15,7 +15,7 @@ const navItems = [
 ---
 
 <header
-  class="sticky top-0 z-50 w-full bg-skin-fill/80 backdrop-blur-lg border-b border-skin-line"
+  class="sticky top-0 z-50 w-full bg-skin-fill/80 backdrop-blur-xl border-b border-skin-line transition-all duration-300"
 >
   <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
@@ -34,7 +34,7 @@ const navItems = [
           navItems.map(item => (
             <a
               href={item.path}
-              class={`text-sm font-medium transition-colors duration-200 relative group ${
+              class={`text-sm font-medium transition-colors duration-200 relative group py-1 ${
                 activeNav === item.id
                   ? "text-primary-600"
                   : "text-skin-base-muted hover:text-skin-base"
@@ -42,7 +42,7 @@ const navItems = [
             >
               {item.label}
               <span
-                class={`absolute -bottom-1 left-0 h-0.5 bg-primary-500 transition-all duration-300 ${
+                class={`absolute -bottom-0.5 left-0 h-0.5 bg-primary-500 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                   activeNav === item.id ? "w-full" : "w-0 group-hover:w-full"
                 }`}
               />
