@@ -3,20 +3,16 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
-import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
-import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
-import { SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
-
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const recentPosts = sortedPosts
+  .filter(({ data }) => !data.featured)
+  .slice(0, 3);
 
-const socialCount = SOCIALS.filter(social => social.active).length;
 const seoSchema = [
   {
     "@context": "https://schema.org",
@@ -31,17 +27,6 @@ const seoSchema = [
       "query-input": "required name=search_term_string",
     },
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: [
-      featuredPosts?.map(({ slug }, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        url: Astro.url.origin + `/posts/${slug}`,
-      })),
-    ],
-  },
 ];
 ---
 
@@ -51,6 +36,285 @@ const seoSchema = [
   set:html={JSON.stringify(seoSchema)}
 />
 
+<Layout>
+  <Header />
+
+  <main id="main-content" class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative py-20 sm:py-28 lg:py-32 overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute top-20 left-1/4 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+          class="absolute bottom-20 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl"
+        >
+        </div>
+      </div>
+
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <!-- The Fool Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-skin-card border border-skin-line"
+        >
+          <span class="text-2xl">🃏</span>
+          <span class="text-sm font-medium text-skin-base-muted"
+            >The Fool Arcana</span
+          >
+        </div>
+
+        <h1
+          class="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight mb-6"
+        >
+          Beginning the <span class="gradient-text">Journey</span>
+        </h1>
+
+        <p
+          class="text-lg sm:text-xl text-skin-base-muted max-w-2xl mx-auto mb-4 leading-relaxed"
+        >
+          Where curiosity meets chaos. I write about technology, security, and
+          the beautiful mess of learning in public.
+        </p>
+
+        <p class="text-base text-skin-base-muted/80 italic mb-10">
+          "Every expert was once a beginner. Every master was once a disaster."
+        </p>
+
+        <!-- CTA Buttons -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a href="/posts/" class="btn btn-primary w-full sm:w-auto">
+            Read the Blog
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="ml-2 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+          <a href="/about/" class="btn btn-secondary w-full sm:w-auto">
+            Meet the Fool
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Post Section -->
+    {
+      featuredPosts.length > 0 && (
+        <section class="py-16 sm:py-20">
+          <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-4 mb-10">
+              <h2 class="text-2xl sm:text-3xl font-serif font-medium">
+                Featured
+              </h2>
+              <div class="flex-1 h-px bg-gradient-to-r from-skin-line to-transparent" />
+            </div>
+
+            <ul class="space-y-8">
+              {featuredPosts.map(({ data, slug }) => (
+                <Card
+                  href={`/posts/${slug}/`}
+                  frontmatter={data}
+                  secHeading={false}
+                  featured={true}
+                />
+              ))}
+            </ul>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Recent Posts Section -->
+    {
+      recentPosts.length > 0 && (
+        <section class="py-16 sm:py-20 bg-skin-fill-muted/50">
+          <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-10">
+              <h2 class="text-2xl sm:text-3xl font-serif font-medium">
+                Recent Posts
+              </h2>
+              <a
+                href="/posts/"
+                class="group flex items-center gap-2 text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors duration-200"
+              >
+                View all
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {recentPosts.map(({ data, slug }) => (
+                <li class="card group">
+                  <a href={`/posts/${slug}/`} class="block h-full">
+                    <article class="h-full flex flex-col">
+                      <time class="text-xs font-medium text-skin-base-muted uppercase tracking-wide">
+                        {new Date(data.pubDatetime).toLocaleDateString(
+                          "en-US",
+                          {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          }
+                        )}
+                      </time>
+                      <h3 class="font-serif text-lg font-medium mt-2 mb-3 group-hover:text-primary-600 transition-colors duration-200 line-clamp-2">
+                        {data.title}
+                      </h3>
+                      <p class="text-sm text-skin-base-muted line-clamp-3 flex-1">
+                        {data.description}
+                      </p>
+                      <div class="mt-4 flex items-center text-sm font-medium text-primary-600">
+                        Read more
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="ml-1 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </div>
+                    </article>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Now Section -->
+    <section class="py-16 sm:py-20">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="card bg-gradient-to-br from-primary-500/5 to-accent-500/5 border-primary-500/20"
+        >
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-primary-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-xl font-serif font-medium mb-2">Now</h2>
+              <p class="text-skin-base-muted leading-relaxed">
+                Currently exploring the intersection of web development and
+                cybersecurity. Writing about my learning journey, building
+                projects that break (and sometimes work), and embracing the
+                beautiful chaos of being a perpetual beginner.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="tag">Learning in public</span>
+                <span class="tag">Building things</span>
+                <span class="tag">Breaking things</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter / Subscribe Section -->
+    <section class="py-16 sm:py-20 bg-skin-fill-muted/50">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl sm:text-3xl font-serif font-medium mb-4">
+          Stay Foolish
+        </h2>
+        <p class="text-skin-base-muted max-w-lg mx-auto mb-8">
+          Join the journey. Get new posts delivered to your inbox. No spam, just
+          honest writing about tech, mistakes, and discoveries.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto"
+        >
+          <a href="/rss.xml" class="btn btn-secondary w-full sm:w-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-2 h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
+              ></path>
+            </svg>
+            Subscribe via RSS
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript>
   <iframe
@@ -59,187 +323,3 @@ const seoSchema = [
     width="0"
     style="display:none;visibility:hidden"></iframe>
 </noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<Layout>
-  <Header />
-  <main id="main-content">
-    <section id="hero">
-      <h1>Hello World!</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon">
-          <path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path>
-          <path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path>
-          <circle cx="6" cy="18" r="2"></circle>
-        </svg>
-      </a>
-
-      <p>
-        Where bits and giggles collide! Unleash your inner geek, laugh at some
-        nerdy jokes, and level up your knowledge with our byte-sized wisdom. Get
-        ready to have a blast as we decode the secrets of online protection &
-        ammunition together.
-      </p>
-      <p>
-        <b>There’s always another secret</b> to uncover, so keep coming back for
-        more!
-      </p>
-      {
-        // only display if at least one social link is enabled
-
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
-
-    <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card
-                  href={`/posts/${slug}/`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < 4 && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
-        All Posts
-        <svg xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
-        </svg>
-      </LinkButton>
-    </div>
-  </main>
-
-  <Footer />
-</Layout>
-
-<style>
-  /* ===== Hero Section ===== */
-  #hero {
-    @apply pb-6 pt-8;
-  }
-
-  #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-
-  #hero .rss-link {
-    @apply mb-6;
-  }
-
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-  }
-
-  #hero p {
-    @apply my-2;
-  }
-
-  .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-  }
-
-  .social-links {
-    @apply mb-1 mr-2 whitespace-nowrap sm:mb-0;
-  }
-
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pb-6 pt-12;
-  }
-
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
-  }
-</style>
-
-<!-- Google tag (gtag.js) -->
-<script
-  slot="head"
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-3ZSMGXCHYC"></script>
-<script slot="head">
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
-  gtag("js", new Date());
-
-  gtag("config", "G-3ZSMGXCHYC");
-</script>
-
-<!-- Google Tag Manager -->
-<script slot="head">
-  (function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({
-      "gtm.start": new Date().getTime(),
-      event: "gtm.js",
-    });
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l != "dataLayer" ? "&l=" + l : "";
-    j.async = true;
-    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-    f.parentNode.insertBefore(j, f);
-  })(window, document, "script", "dataLayer", "GTM-M9VSDVP8");
-</script>
-<!-- End Google Tag Manager -->
