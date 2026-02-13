@@ -25,7 +25,7 @@ export default function Card({
   };
 
   return (
-    <li className={`group ${featured ? "my-8" : "my-6"}`} data-stagger-item>
+    <li className={`group ${featured ? "my-8" : "my-6"}`}>
       <article
         className={`relative ${
           featured

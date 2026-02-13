@@ -40,51 +40,60 @@ const seoSchema = [
   <Header />
 
   <main id="main-content" class="flex-1">
-    <!-- Hero Section - Simple and Clean -->
-    <section id="hero" class="py-16 sm:py-20" data-animate>
-      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h1
-          class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+    <!-- Hero Section - Rainbowish Gradient Design -->
+    <section
+      class="relative py-20 sm:py-28 lg:py-32 overflow-hidden"
+      data-animate
+    >
+      <!-- Background decoration - Rainbowish gradient orbs -->
+      <div class="absolute inset-0 -z-10" data-parallax="0.15">
+        <div
+          class="absolute top-20 left-1/4 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl"
         >
-          Hello World!
-          <a
-            target="_blank"
-            href="/rss.xml"
-            class="inline-block ml-3 text-skin-base-muted hover:text-primary-600 transition-colors"
-            aria-label="rss feed"
-            title="RSS Feed"
+        </div>
+        <div
+          class="absolute bottom-20 right-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"
+        >
+        </div>
+      </div>
+
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <!-- The Fool Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-skin-card border border-skin-line"
+        >
+          <span class="text-2xl">🃏</span>
+          <span class="text-sm font-medium text-skin-base-muted"
+            >The Fool Arcana</span
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 fill-current"
-            >
-              <path
-                d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-              ></path>
-              <path
-                d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-              ></path>
-              <circle cx="6" cy="18" r="2"></circle>
-            </svg>
-          </a>
+        </div>
+
+        <h1
+          class="font-serif text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight mb-6"
+        >
+          Beginning the <span class="gradient-text">Journey</span>
         </h1>
 
         <p
-          class="text-lg sm:text-xl text-skin-base-muted leading-relaxed mb-4 max-w-2xl"
+          class="text-lg sm:text-xl text-skin-base-muted max-w-2xl mx-auto mb-4 leading-relaxed"
         >
-          Where bits and giggles collide! Unleash your inner geek, laugh at some
-          nerdy jokes, and level up your knowledge with our byte-sized wisdom.
-          Get ready to have a blast as we decode the secrets of online
-          protection & ammunition together.
+          Where curiosity meets chaos. I write about technology, security, and
+          the beautiful mess of learning in public.
         </p>
 
-        <p class="text-base text-skin-base mb-6">
-          <b>There's always another secret</b> to uncover, so keep coming back for
-          more!
+        <p class="text-base text-skin-base-muted/80 italic mb-10">
+          "Every expert was once a beginner. Every master was once a disaster."
         </p>
 
-        <div class="flex flex-wrap items-center gap-4">
-          <a href="/posts/" class="btn btn-primary">
+        <!-- CTA Buttons -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <a href="/posts/" class="btn btn-primary w-full sm:w-auto">
             Read the Blog
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +109,9 @@ const seoSchema = [
                 d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
-          <a href="/about/" class="btn btn-secondary"> About Me </a>
+          <a href="/about/" class="btn btn-secondary w-full sm:w-auto">
+            Meet the Fool
+          </a>
         </div>
       </div>
     </section>
@@ -108,7 +119,7 @@ const seoSchema = [
     <!-- Featured Post Section -->
     {
       featuredPosts.length > 0 && (
-        <section class="py-16 sm:py-20" data-animate>
+        <section class="py-16 sm:py-20">
           <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center gap-4 mb-10">
               <h2 class="text-2xl sm:text-3xl font-serif font-semibold">
@@ -117,7 +128,7 @@ const seoSchema = [
               <div class="flex-1 h-px bg-gradient-to-r from-skin-line to-transparent" />
             </div>
 
-            <ul class="space-y-8" data-stagger="120">
+            <ul class="space-y-8">
               {featuredPosts.map(({ data, slug }) => (
                 <Card
                   href={`/posts/${slug}/`}
@@ -135,7 +146,7 @@ const seoSchema = [
     <!-- Recent Posts Section -->
     {
       recentPosts.length > 0 && (
-        <section class="py-16 sm:py-20 bg-skin-fill-muted/50" data-animate>
+        <section class="py-16 sm:py-20 bg-skin-fill-muted/50">
           <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between mb-10">
               <h2 class="text-2xl sm:text-3xl font-serif font-semibold">
@@ -163,12 +174,9 @@ const seoSchema = [
               </a>
             </div>
 
-            <ul
-              class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-              data-stagger="100"
-            >
+            <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {recentPosts.map(({ data, slug }) => (
-                <li class="card group" data-stagger-item>
+                <li class="card group">
                   <a href={`/posts/${slug}/`} class="block h-full">
                     <article class="h-full flex flex-col">
                       <time class="text-xs font-medium text-skin-base-muted uppercase tracking-wide">
@@ -263,11 +271,11 @@ const seoSchema = [
     <section class="py-16 sm:py-20 bg-skin-fill-muted/50">
       <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-2xl sm:text-3xl font-serif font-medium mb-4">
-          Stay Updated
+          Stay Foolish
         </h2>
         <p class="text-skin-base-muted max-w-lg mx-auto mb-8">
-          Get new posts delivered to your inbox. No spam, just honest writing
-          about tech, mistakes, and discoveries.
+          Join the journey. Get new posts delivered to your inbox. No spam, just
+          honest writing about tech, mistakes, and discoveries.
         </p>
         <div
           class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto"
