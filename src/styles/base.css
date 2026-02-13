@@ -1,5 +1,5 @@
-/* Refined font loading - Source Serif 4 for elegance, Inter for UI, IBM Plex Mono for code */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&display=swap');
+/* Refined font loading - Playfair Display for elegance, Inter for UI, IBM Plex Mono for code */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -348,30 +348,42 @@
      ANIMATION SYSTEM
      ================================ */
 
-  /* Scroll-triggered animations */
+  /* Scroll-triggered animations - visible by default, enhanced when JS loads */
   [data-animate] {
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 1;
+    transform: translateY(0);
     transition: 
       opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
       transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  [data-animate].is-visible {
+  /* When JS is enabled, start hidden for animation */
+  html.js [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  html.js [data-animate].is-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Stagger animation items */
+  /* Stagger animation items - visible by default */
   [data-stagger-item] {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0);
     transition: 
       opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
       transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  [data-stagger-item].is-visible {
+  /* When JS is enabled, start hidden for animation */
+  html.js [data-stagger-item] {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  html.js [data-stagger-item].is-visible {
     opacity: 1;
     transform: translateY(0);
   }

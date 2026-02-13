@@ -252,6 +252,9 @@ function initPageLoadAnimations() {
  * Initialize all animations
  */
 function initAnimations() {
+  // Add 'js' class to html element to enable JS-only animations
+  document.documentElement.classList.add("js");
+
   initScrollAnimations();
   initParallax();
   initMagneticButtons();
