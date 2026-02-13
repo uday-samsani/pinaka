@@ -345,10 +345,12 @@
   }
 
   /* ================================
-     ANIMATION SYSTEM
+     ANIMATION SYSTEM - REDESIGNED
+     Content always visible, animations are enhancements
      ================================ */
 
-  /* Scroll-triggered animations - visible by default, enhanced when JS loads */
+  /* Scroll-triggered animations - ALWAYS visible by default */
+  /* Animation is an enhancement, not a requirement for visibility */
   [data-animate] {
     opacity: 1;
     transform: translateY(0);
@@ -357,18 +359,21 @@
       transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* When JS is enabled, start hidden for animation */
-  html.js [data-animate] {
-    opacity: 0;
-    transform: translateY(24px);
+  /* Optional: subtle fade-in enhancement when JS loads and element enters viewport */
+  /* Only apply if user hasn't requested reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html.js [data-animate]:not(.is-visible) {
+      opacity: 0.95;
+      transform: translateY(8px);
+    }
+    
+    html.js [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  html.js [data-animate].is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Stagger animation items - visible by default */
+  /* Stagger animation items - ALWAYS visible */
   [data-stagger-item] {
     opacity: 1;
     transform: translateY(0);
@@ -377,15 +382,17 @@
       transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* When JS is enabled, start hidden for animation */
-  html.js [data-stagger-item] {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  html.js [data-stagger-item].is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* Optional enhancement only */
+  @media (prefers-reduced-motion: no-preference) {
+    html.js [data-stagger-item]:not(.is-visible) {
+      opacity: 0.95;
+      transform: translateY(4px);
+    }
+    
+    html.js [data-stagger-item].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Page load animations */

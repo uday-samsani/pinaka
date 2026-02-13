@@ -110,13 +110,41 @@ const socialImageURL = new URL(
     <script is:inline src="/toggle-theme.js"></script>
     <script src="/animations.js" defer></script>
 
-    <!-- Page Transition Styles -->
+    <!-- Page Transition Styles - Redesigned for smoother experience -->
     <style is:global>
-      /* View transition animations */
-      @keyframes fadeInUp {
+      /* ========================================
+         REDESIGNED PAGE TRANSITIONS
+         Smoother, more elegant animations
+         ======================================== */
+
+      /* Fade with slight scale for more polished feel */
+      @keyframes pageEnter {
         from {
           opacity: 0;
-          transform: translateY(20px);
+          transform: scale(0.98) translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      @keyframes pageExit {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.98);
+        }
+      }
+
+      /* Smooth content reveal */
+      @keyframes contentReveal {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
         }
         to {
           opacity: 1;
@@ -124,32 +152,39 @@ const socialImageURL = new URL(
         }
       }
 
-      @keyframes fadeOutDown {
-        from {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        to {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-      }
-
-      /* Astro view transitions */
+      /* Astro view transitions - refined timing */
       ::view-transition-old(root) {
-        animation: fadeOutDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation: pageExit 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       }
 
       ::view-transition-new(root) {
-        animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation: pageEnter 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation-delay: 0.05s;
       }
 
-      /* Reduced motion preference */
+      /* Ensure content is immediately interactive */
+      ::view-transition-group(root) {
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Reduced motion preference - respect user settings */
       @media (prefers-reduced-motion: reduce) {
         ::view-transition-old(root),
         ::view-transition-new(root) {
           animation: none;
+          opacity: 1;
         }
+      }
+
+      /* Loading state - show content immediately */
+      html.loading body {
+        opacity: 1 !important;
+      }
+
+      /* Ensure no flash of unstyled content */
+      html {
+        visibility: visible;
+        opacity: 1;
       }
     </style>
     <!-- Google tag (gtag.js) -->

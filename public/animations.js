@@ -1,20 +1,15 @@
 /**
- * Pinaka Animation System
- * Elegant, fluid animations inspired by:
- * - Josh Comeau (joshwcomeau.com) - playful, smooth interactions
- * - Lee Robinson (leerob.io) - minimal, warm animations
- * - Max Böck (mxb.dev) - craft-focused micro-interactions
+ * Pinaka Animation System - Redesigned
+ * Smoother, more reliable animations that never block content
+ *
+ * Philosophy: Content is always visible. Animations enhance, not require.
  */
 
 // Easing functions for smooth, natural motion
 const EASING = {
-  // Smooth deceleration - for entrance animations
   smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
-  // Bouncy but elegant - for hover effects
   spring: "cubic-bezier(0.34, 1.56, 0.64, 1)",
-  // Sharp acceleration - for exits
   snappy: "cubic-bezier(0.4, 0, 1, 1)",
-  // Gentle ease - for subtle movements
   gentle: "cubic-bezier(0.25, 0.1, 0.25, 1)",
 };
 
@@ -27,13 +22,25 @@ const DURATION = {
 };
 
 /**
- * Intersection Observer for scroll-triggered staggered animations
+ * Intersection Observer for scroll-triggered animations
+ * Safely enhances content without blocking visibility
  */
 function initScrollAnimations() {
+  // Don't run if IntersectionObserver isn't supported
+  if (!("IntersectionObserver" in window)) {
+    // Make all elements visible immediately
+    document
+      .querySelectorAll("[data-animate], [data-stagger-item]")
+      .forEach(el => {
+        el.classList.add("is-visible");
+      });
+    return;
+  }
+
   const observerOptions = {
     root: null,
-    rootMargin: "0px 0px -50px 0px",
-    threshold: 0.1,
+    rootMargin: "0px 0px -10% 0px",
+    threshold: 0.05,
   };
 
   const observer = new IntersectionObserver(entries => {
@@ -45,7 +52,7 @@ function initScrollAnimations() {
         // Stagger children if data-stagger is present
         if (container.hasAttribute("data-stagger")) {
           const children = container.querySelectorAll("[data-stagger-item]");
-          const delay = parseInt(container.dataset.stagger) || 100;
+          const delay = parseInt(container.dataset.stagger) || 80;
 
           children.forEach((child, index) => {
             setTimeout(() => {
@@ -63,6 +70,13 @@ function initScrollAnimations() {
   document.querySelectorAll("[data-animate]").forEach(el => {
     observer.observe(el);
   });
+
+  // Also observe stagger containers directly
+  document.querySelectorAll("[data-stagger]").forEach(el => {
+    if (!el.hasAttribute("data-animate")) {
+      observer.observe(el);
+    }
+  });
 }
 
 /**
@@ -72,15 +86,17 @@ function initParallax() {
   const heroElements = document.querySelectorAll("[data-parallax]");
 
   if (heroElements.length === 0) return;
+  if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches)
+    return;
 
   let ticking = false;
+  let lastScrollY = 0;
 
   function updateParallax() {
-    const scrollY = window.scrollY;
-
+    // Use lastScrollY captured at scroll time
     heroElements.forEach(el => {
       const speed = parseFloat(el.dataset.parallax) || 0.3;
-      const yPos = scrollY * speed;
+      const yPos = lastScrollY * speed;
       el.style.transform = `translate3d(0, ${yPos}px, 0)`;
     });
 
@@ -90,6 +106,7 @@ function initParallax() {
   window.addEventListener(
     "scroll",
     () => {
+      lastScrollY = window.scrollY;
       if (!ticking) {
         requestAnimationFrame(updateParallax);
         ticking = true;
@@ -103,6 +120,10 @@ function initParallax() {
  * Magnetic button effect - buttons follow cursor slightly
  */
 function initMagneticButtons() {
+  if (!window.matchMedia("(pointer: fine)").matches) return;
+  if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches)
+    return;
+
   const buttons = document.querySelectorAll("[data-magnetic]");
 
   buttons.forEach(button => {
@@ -131,6 +152,9 @@ function initMagneticButtons() {
  * Text reveal animation for headings
  */
 function initTextReveal() {
+  if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches)
+    return;
+
   const headings = document.querySelectorAll("[data-reveal-text]");
 
   headings.forEach(heading => {
@@ -192,6 +216,10 @@ function initSmoothScroll() {
  * Card hover lift effect with 3D tilt
  */
 function initCardTilt() {
+  if (!window.matchMedia("(pointer: fine)").matches) return;
+  if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches)
+    return;
+
   const cards = document.querySelectorAll("[data-tilt]");
 
   cards.forEach(card => {
@@ -229,23 +257,15 @@ function initPulseAnimation() {
 }
 
 /**
- * Fade in elements on page load (not just scroll)
+ * Ensure all content is visible (safety fallback)
  */
-function initPageLoadAnimations() {
-  const pageElements = document.querySelectorAll("[data-page-animate]");
-
-  pageElements.forEach((el, index) => {
-    const delay = parseInt(el.dataset.pageAnimate) || index * 100;
-
-    el.style.opacity = "0";
-    el.style.transform = "translateY(20px)";
-    el.style.transition = `opacity ${DURATION.slow}ms ${EASING.smooth}, transform ${DURATION.slow}ms ${EASING.smooth}`;
-
-    setTimeout(() => {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }, delay);
-  });
+function ensureContentVisible() {
+  // Make sure all animated elements are visible
+  document
+    .querySelectorAll("[data-animate], [data-stagger-item]")
+    .forEach(el => {
+      el.classList.add("is-visible");
+    });
 }
 
 /**
@@ -255,6 +275,7 @@ function initAnimations() {
   // Add 'js' class to html element to enable JS-only animations
   document.documentElement.classList.add("js");
 
+  // Initialize animations
   initScrollAnimations();
   initParallax();
   initMagneticButtons();
@@ -262,7 +283,10 @@ function initAnimations() {
   initSmoothScroll();
   initCardTilt();
   initPulseAnimation();
-  initPageLoadAnimations();
+
+  // Safety: ensure content is visible after a timeout
+  // This catches any edge cases where observer might fail
+  setTimeout(ensureContentVisible, 2000);
 }
 
 // Initialize on DOM ready
@@ -275,6 +299,9 @@ if (document.readyState === "loading") {
 // Re-initialize after Astro view transitions
 document.addEventListener("astro:after-swap", initAnimations);
 
+// Safety: ensure visibility on load event (catches all edge cases)
+window.addEventListener("load", ensureContentVisible);
+
 // Export for use in other scripts
 window.PinakaAnimations = {
   EASING,
@@ -285,4 +312,5 @@ window.PinakaAnimations = {
   initTextReveal,
   initSmoothScroll,
   initCardTilt,
+  ensureContentVisible,
 };
