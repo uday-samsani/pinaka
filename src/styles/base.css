@@ -273,4 +273,72 @@
   .glass {
     @apply bg-skin-card/80 backdrop-blur-lg;
   }
+
+  /* Scroll-triggered animations */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  [data-animate].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger animation */
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: staggerFadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes staggerFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Link hover underline animation */
+  .link-animated {
+    @apply relative inline-block;
+  }
+
+  .link-animated::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 ease-out;
+  }
+
+  .link-animated:hover::after {
+    @apply w-full;
+  }
+
+  /* Enhanced card hover */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-2 shadow-xl shadow-primary-500/10;
+  }
+
+  /* Page transition */
+  ::view-transition-old(root) {
+    animation: fadeOut 0.2s ease-out forwards;
+  }
+
+  ::view-transition-new(root) {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
 }
